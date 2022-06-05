@@ -10,12 +10,14 @@ import { Container } from './styles';
 const Header = () => {
   const { weather } = useSelector((state: RootState) => state.weather);
 
+  const headerContent = weather.city
+    ? `${weather?.city}, ${weather?.country}`
+    : '';
+
   return (
     <Container testID="header.component">
       <Typography variant="normalRegular">{weather?.date}</Typography>
-      <Typography variant="mediumRegular">
-        {weather?.city}, {weather?.country}
-      </Typography>
+      <Typography variant="mediumRegular">{headerContent}</Typography>
     </Container>
   );
 };

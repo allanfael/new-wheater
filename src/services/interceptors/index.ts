@@ -1,12 +1,14 @@
 import { Alert } from 'react-native';
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
-import NetInfo from '@react-native-community/netinfo';
+import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 
 import { store } from '@store';
 import { weatherFailure } from '@store/ducks/weather';
 
-export const checkNetwork = (request: AxiosRequestConfig) => {
-  const isConnected = NetInfo.fetch().then(state => state.isInternetReachable);
+export const checkNetwork = async (request: AxiosRequestConfig) => {
+  const isConnected = await NetInfo.fetch().then(
+    state => state.isInternetReachable
+  );
 
   if (!isConnected) {
     Alert.alert(

@@ -61,9 +61,7 @@ const callBaseApi = (call: Params) => {
     });
   }
 
-  baseApi.interceptors.request.use(checkNetwork, handleApiErros, {
-    synchronous: true,
-  });
+  baseApi.interceptors.request.use(checkNetwork, handleApiErros);
 
   baseApi.interceptors.response.use(
     response => {
