@@ -12,7 +12,6 @@ Teste técnico para a [Builders]
 
 - Para executar os testes, execute o comando:
 ```yarn test```
-- Por falta de tempo, existe apenas o teste da tela de login
 
 ## 🕵🏻‍♂️ Como debugar?
 
