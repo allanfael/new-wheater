@@ -1,0 +1,147 @@
+
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "es2015",
+    "lib": [
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "allowJs": false,
+    "jsx": "react-native",
+    "sourceMap": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "src/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@components": [
+        "./components"
+      ],
+      "@mock/*": [
+        "./mock/*"
+      ],
+      "@mock": [
+        "./mock"
+      ],
+      "@containers": [
+        "./containers"
+      ],
+      "@containers/*": [
+        "./containers/*"
+      ],
+      "@helpers/*": [
+        "./helpers/*"
+      ],
+      "@helpers": [
+        "./helpers"
+      ],
+      "@screens/*": [
+        "./screens/*"
+      ],
+      "@screens": [
+        "./screens"
+      ],
+      "@services/*": [
+        "./services/*"
+      ],
+      "@services": [
+        "./services"
+      ],
+      "@store/*": [
+        "./store/*"
+      ],
+      "@redux": [
+        "./store/ducks"
+      ],
+       "@redux/*": [
+        "./store/ducks/*"
+      ],
+      "@store": [
+        "./store"
+      ],
+      "@modals/*": [
+        "./modals/*"
+      ],
+      "@modals": [
+        "./modals"
+      ],
+      "@themes/*": [
+        "./themes/*"
+      ],
+      "@themes": [
+        "./themes"
+      ],
+      "@assets": [
+        "./assets"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@config": [
+        "./config"
+      ],
+      "@config/*": [
+        "./config/*"
+      ],
+      "@dataMock": [
+        "./mock"
+      ],
+      "@dataMock/*": [
+        "./mock/*"
+      ],
+      "@interfaces": [
+        "./interfaces"
+      ],
+      "@interfaces/*": [
+        "./interfaces/*"
+      ],
+      "@utils": [
+        "./utils"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@navigator": [
+        "./navigators"
+      ],
+      "@navigator/*": [
+        "./navigators/*"
+      ],
+      "@shimmers": [
+        "./shimmers"
+      ],
+      "@shimmers/*": [
+        "./shimmers/*"
+      ],
+      "@hooks": [
+        "./hooks"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@dto": [
+        "./dto"
+      ],
+      "@dto/*": [
+        "./dto/*"
+      ],
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
+  ]
+}
