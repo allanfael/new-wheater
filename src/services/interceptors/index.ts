@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
-import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
+import NetInfo from '@react-native-community/netinfo';
 
 import { store } from '@store';
 import { weatherFailure } from '@store/ducks/weather';

@@ -10,13 +10,14 @@ import { Background, Loading } from '@components';
 import Header from './components/Header';
 import Weather from './components/Weather';
 import Forecast from './components/Forecast';
+import TryAgain from './components/TryAgain';
 
 import colors from '@themes/colors';
 
 import { Container } from './home.styles';
 
 function Home() {
-  const { loading, refreshing } = useSelector(
+  const { loading, refreshing, locationPermission } = useSelector(
     (state: RootState) => state.weather
   );
 
@@ -25,6 +26,14 @@ function Home() {
   useEffect(() => {
     dispatch(weatherRequest());
   }, []);
+
+  if (!locationPermission && !loading) {
+    return (
+      <Background>
+        <TryAgain />
+      </Background>
+    );
+  }
 
   return (
     <Background>

@@ -9,11 +9,13 @@ interface WeatherState {
   loading: boolean;
   refreshing: boolean;
   message?: string;
+  locationPermission: boolean;
 }
 
 interface WeatherPayload {
   weather: WeatherDTO;
   forecast: ForecastDTO[];
+  locationPermission: boolean;
 }
 
 interface WeatherErroPayload {
@@ -28,6 +30,7 @@ const weather = createSlice({
     loading: false,
     refreshing: false,
     message: '',
+    locationPermission: true,
   } as WeatherState,
   reducers: {
     weatherRequest: state => {
@@ -50,6 +53,9 @@ const weather = createSlice({
       state.weather = {} as WeatherDTO;
       state.forecast = [];
     },
+    getLocationPermission: (state, action: PayloadAction<boolean>) => {
+      state.locationPermission = action.payload;
+    },
   },
 });
 
@@ -58,5 +64,6 @@ export const {
   weatherSuccess,
   weatherFailure,
   weatherRefresh,
+  getLocationPermission,
 } = weather.actions;
 export default weather.reducer;

@@ -23,8 +23,10 @@ function RootNavigator() {
 
   return (
     <NavigationContainer theme={CustomDefaultTheme}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name='HomeScreen' component={Home} />
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="HomeScreen">
+        <Stack.Screen name="HomeScreen" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -2,8 +2,8 @@ apply plugin: "com.android.application"
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 project.ext.envConfigFiles = [
-    debug: "../.env.develop",
-    develop: "../.env.develop",
+    debug: "../.env.exemple",
+    develop: "../.env.exemple",
 ]
 
 import com.android.build.OutputFile
@@ -277,6 +277,7 @@ dependencies {
     implementation project(':lottie-react-native')
 
     implementation project(':react-native-splash-screen')
+
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

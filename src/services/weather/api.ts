@@ -66,6 +66,7 @@ const callBaseApi = (call: Params) => {
   baseApi.interceptors.response.use(
     response => {
       if (showConsoleLog && __DEV__) {
+        console.tron.log(`[${title} - CALL API COMPLETE]`);
       }
       return response;
     },

@@ -1,17 +1,16 @@
 import React from 'react';
-import { cleanup, render, act, waitFor } from '@testing-library/react-native';
+import { render, act } from '@testing-library/react-native';
 import configureStore from 'redux-mock-store';
 import * as ReactRedux from 'react-redux';
 
 import { weatherMock } from '@mock/weather';
 
-import { weatherRefresh, weatherRequest } from '@store/ducks/weather';
-
 import Home from './Home';
 
 const initialState = {
   weather: weatherMock,
-  loading: true,
+  loading: false,
+  locationPermission: true,
   message: '',
 };
 
@@ -22,13 +21,11 @@ const store = mockStore(initialState);
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn(),
+  useSelector: jest.fn(),
 }));
 
 const useDispatchMock = ReactRedux.useDispatch as jest.Mock;
-
-// afterEach(() => {
-//   cleanup();
-// });
+const useSelectorMock = ReactRedux.useSelector as jest.Mock;
 
 describe('Home', () => {
   const dispatchResultRecorder = {} as any;
@@ -41,12 +38,9 @@ describe('Home', () => {
   };
 
   useDispatchMock.mockImplementation(() => fakeDispatch);
+  useSelectorMock.mockImplementation(() => initialState);
 
   it('should be able to render', () => {
-    // useDispatchMock.mockClear();
-
-    // expect(useDispatchMock).toHaveBeenCalledTimes(1);
-
     const { getByTestId } = render(
       <ReactRedux.Provider store={store}>
         <Home />
