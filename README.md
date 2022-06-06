@@ -18,3 +18,6 @@ Teste técnico para a [Builders]
 - Você pode usar o reactotron para debugar o projeto.
 
 
+## 📚 Api Key
+- Não esqueça de colocar sua api key no arquivo .env.example
+
