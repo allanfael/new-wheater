@@ -1,6 +1,6 @@
 ## Sobre
 
-Teste técnico para a [Builders]
+App show case de previsão do tempo
 
 ![N|Solid](screenshot.png)
 
