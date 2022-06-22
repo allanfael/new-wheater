@@ -1,4 +1,4 @@
-import GetLocation, { Location } from 'react-native-get-location';
+import GetLocation from 'react-native-get-location';
 
 import { getLocationPermission } from '@store/ducks/weather';
 
@@ -6,27 +6,21 @@ import { LocationDTO } from '@dto/LocationDTO';
 import { store } from '@store';
 
 export const getLocation = async (): Promise<LocationDTO | null> => {
-  const location = await GetLocation.getCurrentPosition({
-    enableHighAccuracy: true,
-    timeout: 15000,
-  })
-    .then((location: Location) => {
-      store.dispatch(getLocationPermission(true));
-      return {
-        latitude: location.latitude,
-        longitude: location.longitude,
-      };
-    })
-    .catch(error => {
-      store.dispatch(getLocationPermission(false));
+  try {
+    const location = await GetLocation.getCurrentPosition({
+      enableHighAccuracy: true,
+      timeout: 15000,
     });
 
-  if (location) {
+    store.dispatch(getLocationPermission(true));
+
     return {
       lat: location.latitude,
       lon: location.longitude,
     };
-  }
+  } catch (error) {
+    store.dispatch(getLocationPermission(false));
 
-  return null;
+    return null;
+  }
 };
