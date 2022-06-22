@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { weatherRequest, weatherRefresh } from '@store/ducks/weather';
 import { RootState } from '@store/ducks/rootReducer';
+import { AppDispatch } from '@store';
 
 import { Background, Loading } from '@components';
 
@@ -21,7 +22,7 @@ function Home() {
     (state: RootState) => state.weather
   );
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(weatherRequest());
