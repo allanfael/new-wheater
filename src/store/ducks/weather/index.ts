@@ -15,23 +15,24 @@ interface WeatherState {
 interface WeatherPayload {
   weather: WeatherDTO;
   forecast: ForecastDTO[];
-  locationPermission: boolean;
 }
 
 interface WeatherErroPayload {
   message: string;
 }
 
+const initialState: WeatherState = {
+  weather: {} as WeatherDTO,
+  forecast: [],
+  loading: false,
+  refreshing: false,
+  message: '',
+  locationPermission: true,
+};
+
 const weather = createSlice({
   name: 'weather',
-  initialState: {
-    weather: {} as WeatherDTO,
-    forecast: [],
-    loading: false,
-    refreshing: false,
-    message: '',
-    locationPermission: true,
-  } as WeatherState,
+  initialState,
   reducers: {
     weatherRequest: state => {
       state.loading = true;
